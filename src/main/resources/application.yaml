@@ -7,3 +7,6 @@ stripe:
   timeout: 1000
   supported-currencies: USD,EUR,GBP
 payment-gateway: paypal
+email:
+  server: google
+  port: 9090
