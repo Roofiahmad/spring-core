@@ -1,7 +1,5 @@
 package com.roofiahmad.store;
 
-import com.roofiahmad.store.entities.Category;
-import com.roofiahmad.store.entities.Product;
 import com.roofiahmad.store.entities.User;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -20,12 +18,5 @@ public class StoreApplication {
 //		profile.setUser(user);
 //		System.out.printf("User: %s\n", user);
 
-
-		var category1 = Category.builder().name("category1").build();
-		var apple = Product.builder().name("apple").build();
-		apple.setCategory(category1);
-		category1.getProducts().add(apple);
-
-		System.out.printf("Category1: %s\n", category1);
 	}
 }
