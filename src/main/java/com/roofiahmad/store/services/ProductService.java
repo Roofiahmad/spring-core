@@ -5,9 +5,11 @@ import com.roofiahmad.store.entities.Product;
 import com.roofiahmad.store.repositories.CategoryRepository;
 import com.roofiahmad.store.repositories.ProductRepository;
 import com.roofiahmad.store.repositories.UserRepository;
+import com.roofiahmad.store.repositories.specifications.ProductSpec;
 import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -88,5 +90,21 @@ public class ProductService {
     public void fetchProductsByCriteria(){
       var products=  productRepository.findProductsByCriteria("mang", BigDecimal.valueOf(1), null);
       products.forEach(System.out::println);
+    }
+
+    public void fetchProductsBySpecification(String name, BigDecimal minPrice, BigDecimal maxPrice){
+        Specification<Product> spec = Specification.where(null);
+
+        if(name != null){
+            spec = spec.and(ProductSpec.hasName(name));
+        }
+        if(minPrice != null){
+            spec = spec.and(ProductSpec.hasPriceGreaterThanOrEqualTo(minPrice));
+        }
+        if(maxPrice != null){
+            spec = spec.and(ProductSpec.hasPriceLessThanOrEqualTo(maxPrice));
+        }
+
+        productRepository.findAll(spec).forEach(System.out::println);
     }
 }
