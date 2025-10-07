@@ -23,6 +23,7 @@ public class StoreApplication {
 //		productService.deleteProduct();
 //		productService.fetchProducts();
 //		service.fetchUsers();
-		productService.fetchProducts();
+//		productService.fetchProducts();
+		service.setLoyaltyPoints();
 	}
 }

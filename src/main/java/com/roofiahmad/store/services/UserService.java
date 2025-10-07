@@ -82,4 +82,31 @@ public class UserService {
             u.getAddresses().forEach(System.out::println);
         });
     }
+
+    @Transactional
+    public void setLoyaltyPoints(){
+//        var user1 = User.builder().email("roofiahmad1@example.com").name("roofiahmad1").password("password").build();
+//        var user1Profile = Profile.builder().user(user1).bio("bio of user1").loyaltyPoints(5).build();
+//
+//        var user2 = User.builder().email("roofiahmad2@example.com").name("roofiahmad2").password("password").build();
+//        var user2Profile = Profile.builder().user(user2).bio("bio of user2").loyaltyPoints(10).build();
+//
+//        var user3 = User.builder().email("roofiahmad3@example.com").name("roofiahmad3").password("password").build();
+//        var user3Profile = Profile.builder().user(user3).bio("bio of user3").loyaltyPoints(5).build();
+//
+//        userRepository.save(user1);
+//        userRepository.save(user2);
+//        userRepository.save(user3);
+//
+//        profileRepository.save(user1Profile);
+//        profileRepository.save(user2Profile);
+//        profileRepository.save(user3Profile);
+
+        var profiles = userRepository.findByMinimumPoints(2);
+        profiles.forEach(p->{
+            System.out.println(p.getId());
+            System.out.println(p.getEmail());
+        });
+
+    }
 }
