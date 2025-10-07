@@ -1,6 +1,7 @@
 package com.roofiahmad.store;
 
 import com.roofiahmad.store.services.ProductService;
+import com.roofiahmad.store.services.UserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -10,7 +11,7 @@ public class StoreApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
-//		var service =  context.getBean(UserService.class);
+		var service =  context.getBean(UserService.class);
 //		service.showRelatedEntities();
 //		service.fetchAddress();
 //		service.persistRelated();
@@ -19,7 +20,9 @@ public class StoreApplication {
 //		productService.createNewProduct();
 //		productService.createNewProductWithCategory();
 //		productService.addProductToWishlist();
-		productService.deleteProduct();
-
+//		productService.deleteProduct();
+//		productService.fetchProducts();
+//		service.fetchUsers();
+		productService.fetchProducts();
 	}
 }

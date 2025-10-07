@@ -67,4 +67,19 @@ public class UserService {
       userRepository.save(user);
 
     }
+
+    @Transactional
+    public void fetchUser(){
+      var user=  userRepository.findByEmail("roofiahmadsidiq@gmail.com");
+        System.out.println(user);
+    }
+
+    @Transactional
+    public void fetchUsers(){
+        var users = userRepository.findAllWithAddresses();
+        users.forEach(u->{
+            System.out.println(u);
+            u.getAddresses().forEach(System.out::println);
+        });
+    }
 }

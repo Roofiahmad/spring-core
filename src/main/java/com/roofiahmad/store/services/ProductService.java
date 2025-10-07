@@ -64,4 +64,16 @@ public class ProductService {
     public void deleteProduct(){
         productRepository.deleteById(1L);
     }
+
+
+    @Transactional
+    public void updateProductPrices() {
+        productRepository.updatePriceByCategory(BigDecimal.valueOf(10), (byte)1);
+    }
+
+    @Transactional
+    public void fetchProducts(){
+       var products = productRepository.findProducts(BigDecimal.valueOf(1), BigDecimal.valueOf(15));
+       products.forEach(System.out::println);
+    }
 }

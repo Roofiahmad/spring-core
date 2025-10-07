@@ -26,4 +26,8 @@ public class Category {
     @Builder.Default
     private Set<Product> products = new HashSet<>();
 
+    public Category(byte id) {
+        this.id = id;
+    }
+
 }
