@@ -24,6 +24,7 @@ public class StoreApplication {
 //		productService.fetchProducts();
 //		service.fetchUsers();
 //		productService.fetchProducts();
-		service.setLoyaltyPoints();
+//		service.setLoyaltyPoints();
+		productService.fetchProducts();
 	}
 }

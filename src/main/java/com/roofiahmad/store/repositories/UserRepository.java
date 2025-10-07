@@ -14,12 +14,10 @@ public interface UserRepository extends CrudRepository<User, Long> {
     @EntityGraph(attributePaths = {"tags", "addresses"})
     Optional<User> findByEmail(String email);
 
-
     @EntityGraph(attributePaths = "addresses")
     @Query("select u from User u")
     List<User> findAllWithAddresses();
 
-    @EntityGraph(attributePaths = "profile")
-    @Query("SELECT new com.roofiahmad.store.dtos.UserSummaryDTO(p.user.id, p.user.email) FROM Profile p WHERE p.loyaltyPoints > :points ORDER BY p.user.email ASC")
+    @Query("SELECT new com.roofiahmad.store.dtos.UserSummaryDTO(u.id, u.email) FROM User u WHERE u.profile.loyaltyPoints > :points ORDER BY u.email ASC")
     List<UserSummaryDTO> findByMinimumPoints(@Param("points") int loyaltyPoints);
 }
